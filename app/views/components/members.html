@@ -1,0 +1,19 @@
+<section class="ui raised segment">
+  <div class="ui list"> 
+    #{list items:users, as:'user'}
+      <div class="ui item"> 
+        <i class="user icon"></i>
+        <div class="content">
+          ${user.firstName} ${user.lastName}: : ${user.statusText}  <a href="members/follow/${user.id}"> (follow) </a> 
+          #{if user.active == true}
+         			 online!
+         			 #{/if}
+         			 #{if user.active != true}
+         			 offline!
+         			 #{/if}
+          
+        </div>
+      </div>
+    #{/list}
+  </div>
+</section>
