@@ -32,7 +32,7 @@ public class CommentTest extends UnitTest
   	bob.posts.add(post1);
   	
   	//Create a new comment and add the comment to the post created
-  	comment1 = new Comment(bob, "comment2");
+  	comment1 = new Comment(bob, "comment1");
   	post1.comments.add(comment1);
   	post1.save();
   	
@@ -42,7 +42,9 @@ public class CommentTest extends UnitTest
   	
   	//Get the comment from the post and check if that's it
   	Comment comment = post.comments.get(0);
-  	assertEquals("comment2", comment.content);
+  	assertEquals("comment1", comment.content);
+  	//Use bob's email as it is more reliable and specific
+  	assertEquals(bob.email, comment.sender.email);
   	
   	//Remove comment from post
   	post.comments.remove(comment);
@@ -50,7 +52,6 @@ public class CommentTest extends UnitTest
     post.save();
     //Delete it from the database
     comment.delete();
-  	
   	//Remove post from user
   	user.posts.remove(post);
   	//Save it
@@ -59,23 +60,5 @@ public class CommentTest extends UnitTest
   	post.delete();
   	
   } 
-  
-  
-//  @Test
-//  public void testCreateCommentWithUser()
-//  {
-//  	Post post1 = Post.findByTitle("Post Title 1");
-//    assertEquals("This is the first post content", post1.content);
-//    
-//    Comment comment = Comment.findBySender(bob);
-//    assertEquals("comment1", comment.content);
-//  
-//  }
-  
-  @Test
-  public void testNotThere()
-  {
-    Comment a = Comment.findByComment("comment3");
-    assertNull(a);
-  }
+
 }
