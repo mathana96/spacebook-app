@@ -6,9 +6,9 @@ import models.*;
 
 public class CommentTest extends UnitTest 
 {
-	private User bob;
-	private Comment comment1;
-	private Post post1;
+	private User bob, joe;
+	private Comment comment1, comment2;
+	private Post post1, post2;
 	
   @Before
   public void setup()
@@ -16,12 +16,15 @@ public class CommentTest extends UnitTest
   	//Create a new user called bob and save
   	bob = new User ("bob", "jones", "bob@jones.com", "secret", 20, "irish");
   	bob.save();
+  	joe = new User ("joe", "jones", "joe@jones.com", "secret", 20, "irish");
+  	joe.save();
   }
 
   @After
   public void teardown()
   {
   	bob.delete();
+  	joe.delete();
   }
 
   @Test
@@ -60,5 +63,40 @@ public class CommentTest extends UnitTest
   	post.delete();
   	
   } 
+  
+  @Test
+  public void testDeleteComment()
+  {
+  	post2 = new Post("Post Title 2", "This is the first post content");
+  	joe.posts.add(post2);
+  	
+  	comment2 = new Comment(bob, "comment2");
+  	post2.comments.add(comment2);
+  	post2.save();
+  	
+  	User user = User.findByEmail("joe@jones.com");
+  	Post post = user.posts.get(0);
+  	Comment comment = post.comments.get(0);
+  	
+  	assertEquals("comment2", comment.content);
+  	assertEquals(bob.firstName, comment.sender.firstName);
+  	
+  	
+  	post.comments.remove(comment);
+    post.save();
+    
+    assertEquals(0, post.comments.size()); //check is no comments
+    
+    comment.delete(); //delete from database
+    
+    
+  	user.posts.remove(post);
+  	
+  	assertEquals(0, user.posts.size()); //check if no posts
+  	
+  	user.save(); //update user
+  	
+  	post.delete();
+  }
 
 }
