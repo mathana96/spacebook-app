@@ -16,7 +16,8 @@ public class Post extends Model
   @Lob
   public String content;
   
-  @OneToMany(mappedBy="post", cascade=CascadeType.ALL)
+  //@OneToMany(mappedBy="post", cascade=CascadeType.ALL)
+  @OneToMany(cascade=CascadeType.ALL)
   public List<Comment> comments;
   
 
@@ -29,7 +30,7 @@ public class Post extends Model
   
   public void addComment(Comment comment)
   {
-  	comment.post = this;
+  	//comment.post = this;
   	comments.add(comment);
   }
   

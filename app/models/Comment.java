@@ -12,14 +12,17 @@ import play.db.jpa.Model;
 @Entity
 public class Comment extends Model
 {
-	@ManyToOne
-  public Post post;
+	//@ManyToOne
+  //public Post post;
   @Lob
   public String content;
+ // @ManyToOne
+ // User sender;
 
-  public Comment(String content)
+  public Comment(User sender, String content)
   {
-    this.content = content;
+  	//this.sender = sender;
+  	this.content = content;
   }
 
   public String toString()
@@ -30,5 +33,10 @@ public class Comment extends Model
   public static Comment findByComment(String content)
   {
     return find("content", content).first();
+  }
+  
+  public static Comment findBySender(User sender)
+  {
+    return find("sender", sender).first();
   }
 }
