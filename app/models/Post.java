@@ -52,10 +52,29 @@ public class Post extends Model
       long timePassed = timeNow - time;      // time passed in milliseconds
       long seconds = timePassed/1000;
       long minutes = seconds/60;
-      if(minutes > 0) {
-          return minutes + " minutes ago";
+      long hours = minutes/60;
+      if (hours > 0)
+      {
+      	if (hours < 2)
+      	{
+        	return hours + " hour ago";
+
+      	}
+      	return hours + " hours ago";
       }
-      else {
+      else if(minutes > 0) 
+      {
+      	if (minutes < 2)
+      	{
+      		return minutes + " minute ago";
+      	}
+      	else
+      	{
+      		return minutes + " minutes ago";
+      	}          
+      }
+      else 
+      {
           return seconds + " seconds ago";
       }
   }
