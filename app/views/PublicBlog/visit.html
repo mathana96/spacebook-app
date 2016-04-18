@@ -1,0 +1,10 @@
+#{extends 'main.html' /}
+#{set title:'Public Blog' /}
+
+<nav class="ui stackable inverted menu">
+	#{include "components/navigation.html" /} 
+</nav>
+ 
+
+<h1 class="ui inverted teal block header" >${user.firstName}'s Blog</h1>
+#{include "components/displayposts.html" /} 

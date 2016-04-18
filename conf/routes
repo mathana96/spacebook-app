@@ -43,6 +43,11 @@ POST    /publicprofile/sendmessage/{id}         PublicProfile.sendMessage
 GET   /blog                                     Blog.index
 POST  /blog/newpost                             Blog.newPost
 
+# Public Blog
+GET     /publicblog/{id}                        PublicBlog.visit
+POST    /publicblog/comment/{id}/{title}        PublicBlog.comment
+   
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

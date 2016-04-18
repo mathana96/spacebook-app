@@ -23,6 +23,7 @@ public class Comment extends Model
 
   public Comment(User sender, String content)
   {
+  	this.post = post;
   	this.sender = sender;
   	this.content = content;
   }

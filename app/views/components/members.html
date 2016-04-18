@@ -4,14 +4,13 @@
       <div class="ui item"> 
         <i class="user icon"></i>
         <div class="content">
-          ${user.firstName} ${user.lastName}: : ${user.statusText}  <a href="members/follow/${user.id}"> (follow) </a> 
+          <a href="/publicprofile/${user.id}"> ${user.firstName} ${user.lastName}: : ${user.statusText}</a>  <a href="members/follow/${user.id}"> (follow) </a> 
           #{if user.active == true}
          			 online!
          			 #{/if}
          			 #{if user.active != true}
          			 offline!
-         			 #{/if}
-          
+         			 #{/if}        
         </div>
       </div>
     #{/list}

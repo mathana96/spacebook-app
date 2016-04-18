@@ -1,9 +1,22 @@
 <section class="ui stacked segment">
   <h4 class="ui inverted blue block header">Published Posts</h4>
+ 
   #{list items:user.posts, as:'post'}
+   <section class = "ui segment">
     <h5 class="ui inverted green block header"> ${post.title}</h5>
-    <p> 
-      ${post.content}
-    </p>
+ 		<p>${post.content}</p>
+ 		
+ 		<h4 class="ui inverted blue block header">Comment</h4>
+ 		#{list items:post.comments, as:'comment'}
+ 		<p>${comment.sender.firstName} ${comment.content}</p>
+ 		 #{/list}
+  	<form action="/publicblog/comment/${user.id}/${post.title}" method="POST">
+    <div class="field"> 
+      <textarea name="content" placeholder="Content"></textarea>
+    </div>
+    <button class="ui button teal submit labeled icon"><i class="icon edit"></i> Comment </button>
+  </form>
+  </section>
   #{/list}
+  
 </section>
