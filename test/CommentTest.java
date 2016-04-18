@@ -8,7 +8,7 @@ public class CommentTest extends UnitTest
 {
 	private User bob, joe, lee;
 	private Comment comment1, comment2, comment3, comment4;
-	private Post post1, post2, post3, post4, post5;
+	private Post post1, post2, post3;
 	
   @Before
   public void setup()
@@ -37,7 +37,7 @@ public class CommentTest extends UnitTest
   	bob.posts.add(post1);
   	
   	//Create a new comment and add the comment to the post created
-  	comment1 = new Comment(post1, bob, "comment1");
+  	comment1 = new Comment(bob, "comment1");
   	post1.comments.add(comment1);
   	post1.save();
   	
@@ -72,7 +72,7 @@ public class CommentTest extends UnitTest
   	post2 = new Post("Post Title 2", "This is the first post content");
   	joe.posts.add(post2);
   	
-  	comment2 = new Comment(post2, bob, "comment2");
+  	comment2 = new Comment(bob, "comment2");
   	post2.comments.add(comment2);
   	post2.save();
   	
@@ -109,8 +109,8 @@ public class CommentTest extends UnitTest
   	//post4 = new Post("Post Title 4", "This is the second post content");
   	//bob.posts.add(post3);
   	
-  	comment3 = new Comment(post3, joe, "Comment from Joe");
-  	comment4 = new Comment(post3, lee, "Comment from Lee");
+  	comment3 = new Comment(joe, "Comment from Joe");
+  	comment4 = new Comment(lee, "Comment from Lee");
   	post3.comments.add(comment3);
   	post3.comments.add(comment4);
   	post3.save();

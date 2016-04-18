@@ -25,8 +25,7 @@ public class Blog  extends Controller
     post.save();
     user.posts.add(post);
     Collections.reverse(user.posts);
-    user.save();
-    
+    user.save();  
     Logger.info ("title:" + title + " content:" + content);
     index();
   }
