@@ -29,8 +29,14 @@ public class PublicBlog  extends Controller
     post.addComment(comment);
     post.save();
     user.posts.add(post);
-//    user.save();
-    visit(id);
+    if (currentUser == user)
+    {
+      Blog.index();
+    }
+    else 
+    {
+    	visit(id);
+    }
     
  
   }

@@ -8,7 +8,7 @@
  		
  		<h4 class="ui inverted blue block header">Comment</h4>
  		#{list items:post.comments, as:'comment'}
- 		<p>${comment.sender.firstName} ${comment.content}</p>
+ 		<p>${comment.sender.firstName} ${comment.content} ${comment.getTime(comment.time)}</p>
  		 #{/list}
   	<form action="/publicblog/comment/${user.id}/${post.title}" method="POST">
     <div class="field"> 
@@ -20,3 +20,5 @@
   #{/list}
   
 </section>
+
+
