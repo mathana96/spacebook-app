@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Collections;
 import java.util.List;
 
 import models.Message;
@@ -23,6 +24,7 @@ public class Blog  extends Controller
     Post post = new Post(title, content);
     post.save();
     user.posts.add(post);
+    Collections.reverse(user.posts);
     user.save();
     
     Logger.info ("title:" + title + " content:" + content);
