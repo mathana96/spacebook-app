@@ -3,14 +3,47 @@
  
   #{list items:user.posts, as:'post'}
    <section class = "ui segment">
-    <h5 class="ui inverted green block header"> ${post.title}</h5>
- 		<p>${post.content} ${post.getTime(post.time)}</p>
- 		
- 		<h4 class="ui inverted blue block header">Comment</h4>
+    <h5 class="ui header"> 
+  	${post.title}
+    </h5>
+    
+		<div class="ui grid">
+
+			<div class="thirteen wide column">
+				<p>${post.content}</p>
+			</div>
+			<div class="three wide center aligned column">		
+			<button class="circular ui icon button">
+					<i class="edit icon" ></i>
+				</button>		
+			<form action="/blog/deletepost/${post.id}" method="POST">
+				<button class="circular ui icon button">
+					<i class="trash outline icon"></i>
+				</button>
+			</form>		
+				<p>${post.getTime(post.time)}</p>
+				<div class="ui vertical buttons">
+					<button class="ui facebook button">
+						<i class="facebook icon"></i> 
+					</button>
+					<button class="ui twitter button">
+						<i class="twitter icon"></i> 
+					</button>
+					<button class="ui google plus button">
+						<i class="google plus icon"></i>  
+					</button>
+				</div>
+			</div>
+	
+			
+		</div>
+
+
+		<h4 class="ui blue block header">Comment</h4>
  		#{list items:post.comments, as:'comment'}
  		<p>${comment.sender.firstName} ${comment.content} ${comment.getTime(comment.time)}</p>
  		 #{/list}
-  	<form action="/publicblog/comment/${user.id}/${post.title}" method="POST">
+  	<form action="/publicblog/comment/${user.id}/${post.id}" method="POST">
     <div class="field"> 
       <textarea name="content" placeholder="Content"></textarea>
     </div>
@@ -20,5 +53,7 @@
   #{/list}
   
 </section>
+
+
 
 

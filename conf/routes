@@ -42,11 +42,14 @@ POST    /publicprofile/sendmessage/{id}         PublicProfile.sendMessage
 # Blog
 GET   /blog                                     Blog.index
 POST  /blog/newpost                             Blog.newPost
+POST  /blog/deletepost/{id}                     Blog.deletePost
 
 # Public Blog
 GET     /publicblog/{id}                        PublicBlog.visit
-POST    /publicblog/comment/{id}/{title}        PublicBlog.comment
-   
+POST    /publicblog/comment/{id}/{postid}        PublicBlog.comment
+
+# View Blog Post  
+GET     /viewpost/{id}/{postid}									ViewPost.index
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

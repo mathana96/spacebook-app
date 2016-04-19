@@ -17,14 +17,17 @@ public class PublicBlog  extends Controller
 	    
 	    User user = User.findById(id);
 	    Logger.info("Just visiting the page for " + user.firstName + ' ' + user.lastName);
+	    
+	    
 	    render(user);
+	   
 	  }
   
-  public static void comment(Long id, String content, String title)
+  public static void comment(Long id, Long postid, String content, String title)
   {
     User currentUser = Accounts.getLoggedInUser();
     User user = User.findById(id);
-    Post post = Post.findByTitle(title);
+    Post post = Post.findById(postid);
     Comment comment = new Comment(currentUser, content);
     post.addComment(comment);
     post.save();
@@ -37,7 +40,8 @@ public class PublicBlog  extends Controller
     {
     	visit(id);
     }
-    
- 
   }
+  
+ 
+
 }

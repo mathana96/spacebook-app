@@ -28,4 +28,16 @@ public class Blog  extends Controller
     Logger.info ("title:" + title + " content:" + content);
     index();
   }
+  
+  public static void deletePost(Long id)
+  {
+    User user = Accounts.getLoggedInUser();
+    
+    Post post = Post.findById(id);
+    post.save();
+    user.posts.remove(post);
+    user.save();  
+    Logger.info ("Removed " + "id:" + id);
+    index();
+  }
 }
