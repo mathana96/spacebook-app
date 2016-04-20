@@ -37,6 +37,7 @@ public class Blog  extends Controller
     post.save();
     user.posts.remove(post);
     user.save();  
+    post.delete();
     Logger.info ("Removed " + "id:" + id);
     index();
   }

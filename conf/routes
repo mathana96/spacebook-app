@@ -45,11 +45,10 @@ POST  /blog/newpost                             Blog.newPost
 POST  /blog/deletepost/{id}                     Blog.deletePost
 
 # Public Blog
-GET     /publicblog/{id}                        PublicBlog.visit
+GET     /publicblog/{id}                         PublicBlog.visit
+GET     /publicblog/viewpost/{id}/{postid}			 PublicBlog.viewpost
 POST    /publicblog/comment/{id}/{postid}        PublicBlog.comment
 
-# View Blog Post  
-GET     /viewpost/{id}/{postid}									ViewPost.index
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

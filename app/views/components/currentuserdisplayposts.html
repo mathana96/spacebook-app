@@ -1,0 +1,51 @@
+<section class="ui stacked segment">
+  <h4 class="ui inverted blue block header">Published Posts</h4>
+ 
+  #{list items:user.posts, as:'post'}
+   <section class = "ui segment">
+    <h5 class="ui header"> 
+  	${post.title}
+    </h5>
+    
+		<div class="ui stackable grid">
+
+			<div class="fourteen wide column">
+				<p>${post.content}</p>
+			</div>
+			<div class="two wide center aligned column">	
+				<p>${post.getTime(post.time)}</p>
+				<div class="ui vertical buttons">
+					<button class="ui facebook button">
+						<i class="facebook icon"></i> 
+					</button>
+					<button class="ui twitter button">
+						<i class="twitter icon"></i> 
+					</button>
+					<button class="ui google plus button">
+						<i class="google plus icon"></i>  
+					</button>
+				</div>
+			</div>
+	
+			
+		</div>
+
+		
+		<h4 class="ui blue block header">Comment</h4>
+ 		#{list items:post.comments, as:'comment'}
+ 		<p>${comment.sender.firstName} ${comment.content} ${comment.getTime(comment.time)}</p>
+ 		 #{/list}
+  	<form action="/publicblog/comment/${user.id}/${post.id}" method="POST">
+    <div class="field"> 
+      <textarea name="content" placeholder="Content"></textarea>
+    </div>
+    <button class="ui button teal submit labeled icon"><i class="icon edit"></i> Comment </button>
+  </form>
+  </section>
+  #{/list}
+  
+</section>
+
+
+
+

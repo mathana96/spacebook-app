@@ -13,7 +13,7 @@ public class PublicBlog  extends Controller
 {
 	 public static void visit(Long id)
 	  {
-	    User currentUser = Accounts.getLoggedInUser();
+//	    User currentUser = Accounts.getLoggedInUser();
 	    
 	    User user = User.findById(id);
 	    Logger.info("Just visiting the page for " + user.firstName + ' ' + user.lastName);
@@ -38,8 +38,25 @@ public class PublicBlog  extends Controller
     }
     else 
     {
-    	visit(id);
+    	viewPost(id, postid);
     }
+  }
+  
+  public static void viewPost(Long id, Long postid)
+  {
+//    User currentUser = Accounts.getLoggedInUser();
+    Post post = Post.findById(postid);
+    User user = User.findById(id);
+    Logger.info("Just visiting the page for " + user.firstName + ' ' + user.lastName);
+    if (user.posts.contains(post))
+    {
+    	render(user, post);
+    }
+    else
+    {
+    	PublicBlog.visit(id);
+    }
+    
   }
   
  
