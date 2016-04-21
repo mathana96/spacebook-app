@@ -27,9 +27,9 @@ public class BlogTest extends UnitTest
   @Before
   public void setup()
   {
-    bob   = new User("bob", "jones", "bob@jones.com", "secret", 20, "irish");
-    post1 = new Post("Post Title 1", "This is the first post content");
-    post2 = new Post("Post Title 2", "This is the second post content");
+    bob   = new User("bob", "jones", "bob@jones.com", "secret", 20, "irish");    
+    post1 = new Post("Post Title 1", "This is the first post content", bob);
+    post2 = new Post("Post Title 2", "This is the second post content", bob);   
     bob.save();
     post1.save();
     post2.save();
@@ -37,10 +37,10 @@ public class BlogTest extends UnitTest
 
   @After
   public void teardown()
-  {
-    bob.delete();
+  { 
     post1.delete();
     post2.delete();
+    bob.delete();
   }
 
   @Test
@@ -80,7 +80,7 @@ public class BlogTest extends UnitTest
   @Test
   public void testDeletePost()
   {
-    Post post3 = new Post("Post Title 3", "This is the third post content");
+    Post post3 = new Post("Post Title 3", "This is the third post content", bob);
     post3.save();
     bob.posts.add(post3);
     bob.save();

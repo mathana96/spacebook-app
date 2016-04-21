@@ -20,11 +20,10 @@ public class Blog  extends Controller
   public static void newPost(String title, String content)
   {
     User user = Accounts.getLoggedInUser();
-    
-    Post post = new Post(title, content);
-    post.save();
+    Post post = new Post(title, content, user);
     user.posts.add(0, post);
-    user.save();  
+    post.save();
+    user.save();
     Logger.info ("title:" + title + " content:" + content);
     index();
   }

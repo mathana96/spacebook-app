@@ -2,13 +2,15 @@
 User(lisa):
     firstName: Lisa
     lastName: Simpson
+    age: 8
+    nationality: Simpsonian
     email: lisa@simpson.com
     password: secret
     
 User(marge):
     firstName: Marge
     lastName: Simpson
-    age: 45
+    age: 34
     nationality: Simpsonian
     email: marge@simpson.com
     password: secret
@@ -16,32 +18,170 @@ User(marge):
 User(homer):
     firstName: Homer
     lastName: Simpson
-    age: 50
+    age: 39
     nationality: Simpsonian
     email: homer@simpson.com
     password: secret
-    following: 
-              - marge
-              - lisa
-
+    statusText: 'Operator! Give me the number for 911!'
+              
 User(bart):
     firstName: Bart
     lastName: Simpson
+    age: 10 
+    nationality: Simpsonian
     email: bart@simpson.com
     password: secret
 
 User(maggie):
     firstName: Maggie
     lastName: Simpson
+    age: 2
+    nationality: Simpsonian
     email: maggie@simpson.com
     password: secret
-    
-Message(message1):
+
+User(charles):
+    firstName: Charles
+    lastName: Burns
+    age: 123
+    nationality: Simpsonian
+    email: charles@simpson.com
+    password: secret
+
+User(millhouse):
+    firstName: Millhouse
+    lastName: Van Houten
+    age: 10
+    nationality: Simpsonian
+    email: millhouse@simpson.com
+    password: secret
+
+User(moe):
+    firstName: Moe
+    lastName: Szyslak
+    age: 46
+    nationality: Simpsonian
+    email: moe@simpson.com
+    password: secret
+
+User(apu):
+    firstName: Apu
+    lastName: Nahasapeemapetilon
+    age: 40
+    nationality: Simpsonian
+    email: apu@simpson.com
+    password: secret
+
+User(krusty):
+    firstName: Krusty
+    lastName: The Clown
+    age: 40
+    nationality: Simpsonian
+    email: krusty@simpson.com
+    password: secret
+
+User(grampa):
+    firstName: Grampa
+    lastName: Simpson
+    age: 83
+    nationality: Simpsonian
+    email: grampa@simpson.com
+    password: secret
+
+User(mona):
+    firstName: Mona
+    lastName: Simpson
+    age: 75
+    nationality: Simpsonian
+    email: mona@simpson.com
+    password: secret
+                                
+Message(to-homer-1):
     from : marge
     to   : homer
-    messageText: 'how are things going?'
+    messageText: 'Hurry home, we need to make it in time for the show!'
     
-Message(message2):
+Message(to-homer-2):
     from : lisa
     to   : homer
     messageText: 'Get me outta here!'
+
+Message(to-homer-3):
+    from : bart
+    to   : homer
+    messageText: 'Hey dad, can I have $5?'
+
+Message(to-homer-4):
+    from : krusty
+    to   : homer
+    messageText: 'I need you to fill in for me tonight'
+
+Message(to-homer-5):
+    from : moe
+    to   : homer
+    messageText: 'Yeah I used to box'
+
+Message(to-homer-5):
+    from : moe
+    to   : homer
+    messageText: 'You owe me Homer!'
+
+Message(to-marge-1):
+    from : homer
+    to   : marge
+    messageText: 'Is that tonight? D.oh'
+
+Message(to-bart-1):
+    from : homer
+    to   : bart
+    messageText: 'Why you little...!'
+    
+Message(to-lisa-1):
+    from : homer
+    to   : lisa
+    messageText: 'Stay where you are!'
+
+Message(to-krusty-1):
+    from : homer
+    to   : krusty
+    messageText: 'Sorry, I have a show to go to...wait, it is your show! '
+
+Message(to-moe-1):
+    from : homer
+    to   : moe
+    messageText: 'Catch me if you can!'
+                                       
+Friendship(homer-f1):
+    sourceUser: homer
+    targetUser: marge 
+
+Friendship(homer-f2):
+    sourceUser: homer
+    targetUser: bart 
+    
+Friendship(homer-f3):
+    sourceUser: homer
+    targetUser: lisa 
+
+Friendship(homer-f4):
+    sourceUser: homer
+    targetUser: maggie 
+                
+Friendship(homer-f5):
+    sourceUser: homer
+    targetUser: grampa 
+    
+Friendship(homer-f6):
+    sourceUser: homer
+    targetUser: mona    
+    
+Friendship(homer-f7):
+    sourceUser: homer
+    targetUser: apu    
+    
+Friendship(homer-f8):
+    sourceUser: homer
+    targetUser: charles   
+    
+
+             

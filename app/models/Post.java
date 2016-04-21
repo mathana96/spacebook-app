@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
@@ -12,6 +13,9 @@ import play.db.jpa.Model;
 @Entity
 public class Post extends Model
 {
+	@ManyToOne
+	public User author;
+	
   public String title;
   @Lob
   public String content;
@@ -20,14 +24,15 @@ public class Post extends Model
   public List<Comment> comments;
 //  @OneToMany(cascade=CascadeType.ALL)
   
-  public long time;
+  public long time;;
 
-  public Post(String title, String content)
+  public Post(String title, String content, User author)
   {
     this.title = title;
     this.content = content;
-    this.comments = new ArrayList<Comment>();
+    this.comments = new ArrayList<Comment>();  
     this.time = System.currentTimeMillis();
+    this.author = author;
   }
   
   public void addComment(Comment comment)
@@ -39,11 +44,6 @@ public class Post extends Model
   public static Post findByTitle(String title)
   {
     return find("title", title).first();
-  } 
-
-  public String toString()
-  {
-    return title + getTime(time);
   } 
   
   private String getTime(long time)
@@ -77,6 +77,7 @@ public class Post extends Model
       {
           return seconds + " seconds ago";
       }
-  }
+  
+ }
   
 }

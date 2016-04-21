@@ -33,7 +33,7 @@ public class CommentTest extends UnitTest
   public void testCreateComment()
 	{
   	//Create a new post and add the post to bob's arraylist of post.
-  	post1 = new Post("Post Title 1", "This is the first post content");
+  	post1 = new Post("Post Title 1", "This is the first post content", bob);
   	bob.posts.add(post1);
   	
   	//Create a new comment and add the comment to the post created
@@ -69,7 +69,7 @@ public class CommentTest extends UnitTest
   @Test
   public void testDeleteComment()
   {
-  	post2 = new Post("Post Title 2", "This is the first post content");
+  	post2 = new Post("Post Title 2", "This is the first post content", bob);
   	joe.posts.add(post2);
   	
   	comment2 = new Comment(bob, "comment2");
@@ -104,7 +104,7 @@ public class CommentTest extends UnitTest
   @Test
   public void testMultipleComments()
   {
-  	post3 = new Post("Post Title 3", "The content");
+  	post3 = new Post("Post Title 3", "The content", bob);
   	bob.posts.add(post3);
   	//post4 = new Post("Post Title 4", "This is the second post content");
   	//bob.posts.add(post3);

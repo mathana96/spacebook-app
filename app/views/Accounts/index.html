@@ -17,6 +17,7 @@
   
 </section>
 	#{list items:users, as:'user'}
-	${user.firstName}
-  
+  #{if user.posts.size() > 0}
+ <a href="/publicblog/${user.id}">${user.firstName}'s Blog</a> 
+  #{/if}
  #{/list} 			 
