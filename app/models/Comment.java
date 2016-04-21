@@ -23,11 +23,12 @@ public class Comment extends Model
   
   public long time;
   
-  public Comment(User sender, String content)
+  public Comment(Post post, User sender, String content)
   {
   	this.time = System.currentTimeMillis();
   	this.sender = sender;
   	this.content = content;
+  	this.post = post;
   }
   
   private String getTime(long time)

@@ -28,7 +28,7 @@ public class PublicBlog  extends Controller
     User currentUser = Accounts.getLoggedInUser();
     User user = User.findById(id);
     Post post = Post.findById(postid);
-    Comment comment = new Comment(currentUser, content);
+    Comment comment = new Comment(post, currentUser, content);
     post.addComment(comment);
     post.save();
     user.posts.add(post);

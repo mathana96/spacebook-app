@@ -183,5 +183,51 @@ Friendship(homer-f8):
     sourceUser: homer
     targetUser: charles   
     
+Friendship(homer-f8):
+    sourceUser: homer
+    targetUser: charles     
 
-             
+Post(homer-p1):
+    author: homer
+    title: 'Wooo a promotion!'
+    content: 'Friends, you have come to depend on me as your safety watchdog so you will not scrape yourself or stub your toes or blow yourselves up. But you cannot depend on me all your life. You have to learn that there is a little Homer Simpson in all of us, and I am going to have to live without your respect and awe. The only reason I am telling you this is I am going to be leaving you, but do not worry. I have just been appointed the new safety inspector at this very plant with a big, fat raise!'
+    
+Post(homer-p2):
+    author: homer
+    title: 'To all of you'
+    content: 'How dare you talk about Ned Flanders like that. He is a wonderful, kind, caring man. Maybe even more so than me. There have been times when I lost patience with him, even lashed out at him, but this man has turned every cheek on his body. If everyone here were like Ned Flanders, there would be no need for Heaven. We would already be there'
+
+Comment(marge-c1):
+    post: homer-p1
+    sender: marge
+    content: 'Congrats Homer!'   
+ 
+Comment(bart-c1):
+    post: homer-p1
+    sender: bart
+    content: 'Congrats dad! Do I get a higher allowance?'     
+
+Comment(lisa-c1):
+    post: homer-p1
+    sender: lisa
+    content: 'Wooo a new saxaphone..?'        
+    
+Comment(moe-c1):
+    post: homer-p1
+    sender: moe
+    content: 'Promotion eh..Time to'
+    
+Comment(apu-c1):
+    post: homer-p2
+    sender: apu
+    content: 'Well said my friend! We love Ned!' 
+    
+Comment(grampa-c1):
+    post: homer-p2
+    sender: grampa
+    content: 'Who are you and what have you done with my son?'          
+    
+Comment(mona-c1):
+    post: homer-p2
+    sender: mona
+    content: 'No no no...'                     
