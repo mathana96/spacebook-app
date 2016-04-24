@@ -1,22 +1,22 @@
-#{extends 'main.html' /}
-#{set title:'Edit Post' /}
+#{extends 'main.html' /} #{set title:'Edit Post' /}
 
-<nav>
-#{include "components/navigation.html" /} 
-</nav>
+<nav>#{include "components/navigation.html" /}</nav>
 
 
 <section class="ui form inverted grid segment">
-<h1 class="ui inverted center aligned header">Edit Post</h1>
-<div class="sixteen wide column">
-  <form action="/blog/editpost/${post.id}" method="POST">
-    <div class="field">
-      <input type="text" name="title" placeholder="Title" value="${post.title}"></input>    
-      <textarea name="content" placeholder="Content">${post.content}</textarea>
-    </div>
-    <button class="ui button blue submit labeled icon"><i class="icon edit"></i>Update</button>
-  </form>
-</div>  
+	<h1 class="ui inverted center aligned header">Edit Post</h1>
+	<div class="sixteen wide column">
+		<form action="/blog/editpost/${post.id}" method="POST">
+			<div class="field">
+				<input type="text" name="title" placeholder="Title"
+					value="${post.title}"></input>
+				<textarea name="content" placeholder="Content">${post.content}</textarea>
+			</div>
+			<button class="ui button blue submit labeled icon">
+				<i class="icon edit"></i>Update
+			</button>
+		</form>
+	</div>
 </section>
 
 

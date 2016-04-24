@@ -1,16 +1,17 @@
-
-	#{list items:user.posts.reverse(), as:'post'}
-
+ #{list items:user.posts.reverse(), as:'post'}
 
 
-			<div class="sixteen wide center aligned column">
-				<h2 class="ui header"><a href="/publicblog/viewpost/${user.id}/${post.id}">${post.title}</a></h2>
-				<p>${post.getTime(post.time)}</p>
-			</div>
-		<hr>
-		<div class="three wide column"></div>
 
-	#{/list}
+<div class="sixteen wide center aligned column">
+	<h2 class="ui header">
+		<a href="/publicblog/viewpost/${user.id}/${post.id}">${post.title}</a>
+	</h2>
+	<p>${post.getTime(post.time)}</p>
+</div>
+<hr>
+<div class="three wide column"></div>
+
+#{/list}
 
 
 

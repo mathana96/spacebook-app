@@ -1,20 +1,16 @@
-#{extends 'main.html' /}
-#{set title:'Blog' /}
+#{extends 'main.html' /} #{set title:'Blog' /}
 
-<nav class="ui stackable inverted menu">
-	#{include "components/navigation.html" /} 
-</nav>
- 
+<nav class="ui stackable inverted menu">#{include
+	"components/navigation.html" /}</nav>
+
 
 
 <section class="ui two column inverted grid segment">
-<h1 class="ui inverted center aligned header">Blog</h1>
-  <div class="row">
-    <div class="ui column">
-      #{include "components/createpost.html" /} 
-    </div>
-    <div class="column">
-      #{include "components/userdisplayposts.html" /} 
-    </div>
-  </div>
+	<h1 class="ui inverted center aligned header">Blog</h1>
+	<div class="row">
+		<div class="ui column">#{include "components/createpost.html" /}
+		</div>
+		<div class="column">#{include "components/userdisplayposts.html"
+			/}</div>
+	</div>
 </section>

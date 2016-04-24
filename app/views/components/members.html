@@ -1,18 +1,20 @@
 <section class="ui raised segment">
-  <div class="ui list"> 
-    #{list items:users, as:'user'}
-      <div class="ui item"> 
-        <img class = "ui avatar image" src="/profile/getthumbnail/${user.id}">
-        <div class="content">
-        #{if user.active == true}<i class="green circle icon"></i> #{/if} #{if user.active != true} <i class="circle thin icon"></i> #{/if}
-        
-          <a href="/publicprofile/${user.id}"> ${user.firstName} ${user.lastName}</a>  <a href="members/follow/${user.id}"><i class="blue add user icon"></i></a> 
-          <a class="anchor" href="/publicblog/${user.id}"><i class="blue browser icon"></i></a>
-          
-  				<div class="ui yellow compact message"> ${user.statusText} </div>
-  				
-        </div>
-      </div>
-    #{/list}
-  </div>
+	<div class="ui list">
+		#{list items:users, as:'user'}
+		<div class="ui item">
+			<img class="ui avatar image" src="/profile/getthumbnail/${user.id}">
+			<div class="content">
+				#{if user.active == true}<i class="green circle icon"></i> #{/if}
+				#{if user.active != true} <i class="circle thin icon"></i> #{/if} <a
+					href="/publicprofile/${user.id}"> ${user.firstName}
+					${user.lastName}</a> <a href="members/follow/${user.id}"><i
+					class="blue add user icon"></i></a> <a class="anchor"
+					href="/publicblog/${user.id}"><i class="blue browser icon"></i></a>
+
+				<div class="ui yellow compact message">${user.statusText}</div>
+
+			</div>
+		</div>
+		#{/list}
+	</div>
 </section>

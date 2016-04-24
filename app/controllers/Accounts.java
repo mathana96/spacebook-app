@@ -7,79 +7,68 @@ import models.*;
 
 public class Accounts extends Controller
 {
-	
-//  public static void signup()
-//  {
-//    render();
-//  }
-//
-//  public static void login()
-//  {
-//  	
-//    render();
-//    
-//  }
 
-  public static void logout()
-  {
-  	User user = Accounts.getLoggedInUser();
-    user.active = false;
-    user.save();
-    Logger.info("bye " + user.active);
-    session.clear();
-    index();
-    
-    
-  }
 
-  public static void index()
-  {
-    List<User> users = User.findAll();
-    render(users);
+	public static void logout()
+	{
+		User user = Accounts.getLoggedInUser();
+		user.active = false;
+		user.save();
+		Logger.info("bye " + user.active);
+		session.clear();
+		index();
 
-  }
 
-  public static User getLoggedInUser()
-  {
-    User user = null;
-    if (session.contains("logged_in_userid"))
-    {
-      String userId = session.get("logged_in_userid");
-      user = User.findById(Long.parseLong(userId));
-    }
-    else
-    {
-      index();
-    }
-    return user;
-  }
-  
-  public static void register(String firstName, String lastName, int age, String nationality, String email, String password, String password2)
-  {
-    Logger.info(firstName + " " + lastName + " " + email + " " + password);
-    User user = new User(firstName, lastName, email, password, age, nationality);
-    user.save();
-    index();
-  }
+	}
 
-  public static void authenticate(String email, String password)
-  {
-    Logger.info("Attempting to authenticate with " + email + ":" + password);
+	public static void index()
+	{
+		List<User> users = User.findAll();
+		render(users);
 
-    User user = User.findByEmail(email);
-    if ((user != null) && (user.checkPassword(password) == true))
-    {
-      Logger.info("Authentication successful");
-      session.put("logged_in_userid", user.id);
-      user.active = true;
-      user.save();
-      Logger.info("hello " + user.active);
-      Home.index();
-    }
-    else
-    {
-      Logger.info("Authentication failed");
-      index();
-    }
-  }
+	}
+
+	public static User getLoggedInUser()
+	{
+		User user = null;
+		if (session.contains("logged_in_userid"))
+		{
+			String userId = session.get("logged_in_userid");
+			user = User.findById(Long.parseLong(userId));
+		}
+		else
+		{
+			index();
+		}
+		return user;
+	}
+
+	public static void register(String firstName, String lastName, int age, String nationality, String email, String password, String password2)
+	{
+		Logger.info(firstName + " " + lastName + " " + email + " " + password);
+		User user = new User(firstName, lastName, email, password, age, nationality);
+		user.save();
+		index();
+	}
+
+	public static void authenticate(String email, String password)
+	{
+		Logger.info("Attempting to authenticate with " + email + ":" + password);
+
+		User user = User.findByEmail(email);
+		if ((user != null) && (user.checkPassword(password) == true))
+		{
+			Logger.info("Authentication successful");
+			session.put("logged_in_userid", user.id);
+			user.active = true;
+			user.save();
+			Logger.info("hello " + user.active);
+			Home.index();
+		}
+		else
+		{
+			Logger.info("Authentication failed");
+			index();
+		}
+	}
 }

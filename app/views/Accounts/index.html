@@ -1,95 +1,96 @@
-#{extends 'main.html' /}
-#{set title:'Welcome to Spacebook' /}
+#{extends 'main.html' /} #{set title:'Welcome to Spacebook' /}
 
 <nav class="ui inverted menu">
-  <h2 class="ui inverted header"> <img src="/public/images/spacebook-logo.png" class="ui mini center alligned image">  Spacebook </header>
- 
-</nav> 
+	<h2 class="ui inverted header">
+		<img src="/public/images/spacebook-logo.png"
+			class="ui mini center alligned image"> Spacebook
+		</header>
+</nav>
 
-<div class = "ui two column stackable grid">
-<div class="column">
-<section class="ui inverted segment" id="login">
-  <h1 class="ui center aligned header"> Welcome to Spacebook!</h1>
-  <h3 class="ui center aligned header">Join the Homer clan as they interact<br>
-  with one another on this unique social network<br>
-  designed for the residents of Springfield!</h3>
-  <br>
-  <h3 class="ui center aligned header">Catch a glimpse into the minds of<br>
-  the Simpsons and their friends by exploring <br>
-  their blog entries below.</h3>
-  <br>
-  <br>
-  #{list items:users, as:'user'}
-  #{if user.posts.size() > 0}
-  <img src="/profile/getthumbnail/${user.id}" class="ui centered tiny rounded image">
-  <h3 class="ui center aligned header"><a href="/publicblog/${user.id}">${user.firstName}'s Blog</a></h3> 
-  <br>
-  #{/if}
- #{/list} 	
-</section>
-</div>
-<div class="column">
-<section class="ui two column middle aligned grid inverted form segment" id="login">
-<h1 class="ui left aligned header"> Login</h1>
-  <div class="column">
-	  <form action="/authenticate" method="POST">
-	    <div class="field">
-	      <label> Username: </label>
-	      <input type="text" name="email">
-	    </div>  
-	    <div class="field">
-	      <label>  Password: </label>
-	      <input type="password" name="password">
-	    </div>
-	    <button class="ui blue submit button">Login</button>
-	  </form>
-  </div>
-  <div class="column">
-    <img src="/public/images/simpsons1.gif" class="ui large rounded image">
-  </div>
-</section>
- <div class="ui horizontal inverted divider" id="or">
-    Or
-  </div>
-<section class="ui two column middle aligned grid inverted form segment">
-<h1 class="ui left aligned header">New to Spacebook? Sign up</h1>
-  <div class="column">
-	  <form action="/register" method="POST">
-	    <div class="two fields">
-	      <div class="field">
-	        <label>First Name</label>
-	        <input placeholder="First Name" type="text" name="firstName">
-	      </div>
-	      <div class="field">
-	        <label>Last Name</label>
-	        <input placeholder="Last Name" type="text" name="lastName">
-	      </div>
-	    </div>
-	    <div class="two fields">
-	      <div class="field">
-	        <label>Nationality</label>
-	        <input placeholder="Nationality" type="text" name="nationality">
-	      </div>
-	      <div class="field">
-	        <label>Age</label>
-	        <input placeholder="Age" type="text" name="age">
-	      </div>
-	    </div>    <div class="field">
-	      <label>Email</label>
-	      <input placeholder="Email" type="text" name="email">
-	    </div>
-	    <div class="field">
-	      <label>Password</label>
-	      <input type="password" name="password">
-	    </div>
-	    <button class="ui blue submit button">Submit</button>
-	  </form>
+<div class="ui two column stackable grid">
+	<div class="column">
+		<section class="ui inverted segment" id="login">
+			<h1 class="ui center aligned header">Welcome to Spacebook!</h1>
+			<h3 class="ui center aligned header">
+				Join the Homer clan as they interact<br> with one another on
+				this unique social network<br> designed for the residents of
+				Springfield!
+			</h3>
+			<br>
+			<h3 class="ui center aligned header">
+				Catch a glimpse into the minds of<br> the Simpsons and their
+				friends by exploring <br> their blog entries below.
+			</h3>
+			<br> <br> #{list items:users, as:'user'} #{if
+			user.posts.size() > 0} <img src="/profile/getthumbnail/${user.id}"
+				class="ui centered tiny rounded image">
+			<h3 class="ui center aligned header">
+				<a href="/publicblog/${user.id}">${user.firstName}'s Blog</a>
+			</h3>
+			<br> #{/if} #{/list}
+		</section>
 	</div>
 	<div class="column">
-    <img src="/public/images/simpsons2.gif" class="ui large image">
-  </div>
-</section>  
+		<section
+			class="ui two column middle aligned grid inverted form segment"
+			id="login">
+			<h1 class="ui left aligned header">Login</h1>
+			<div class="column">
+				<form action="/authenticate" method="POST">
+					<div class="field">
+						<label> Username: </label> <input type="text" name="email">
+					</div>
+					<div class="field">
+						<label> Password: </label> <input type="password" name="password">
+					</div>
+					<button class="ui blue submit button">Login</button>
+				</form>
+			</div>
+			<div class="column">
+				<img src="/public/images/simpsons1.gif"
+					class="ui large rounded image">
+			</div>
+		</section>
+		<div class="ui horizontal inverted divider" id="or">Or</div>
+		<section
+			class="ui two column middle aligned grid inverted form segment">
+			<h1 class="ui left aligned header">New to Spacebook? Sign up</h1>
+			<div class="column">
+				<form action="/register" method="POST">
+					<div class="two fields">
+						<div class="field">
+							<label>First Name</label> <input placeholder="First Name"
+								type="text" name="firstName">
+						</div>
+						<div class="field">
+							<label>Last Name</label> <input placeholder="Last Name"
+								type="text" name="lastName">
+						</div>
+					</div>
+					<div class="two fields">
+						<div class="field">
+							<label>Nationality</label> <input placeholder="Nationality"
+								type="text" name="nationality">
+						</div>
+						<div class="field">
+							<label>Age</label> <input placeholder="Age" type="text"
+								name="age">
+						</div>
+					</div>
+					<div class="field">
+						<label>Email</label> <input placeholder="Email" type="text"
+							name="email">
+					</div>
+					<div class="field">
+						<label>Password</label> <input type="password" name="password">
+					</div>
+					<button class="ui blue submit button">Submit</button>
+				</form>
+			</div>
+			<div class="column">
+				<img src="/public/images/simpsons2.gif" class="ui large image">
+			</div>
+		</section>
+	</div>
 </div>
-</div>  
 
-			 
