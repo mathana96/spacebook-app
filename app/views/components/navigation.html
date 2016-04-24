@@ -1,16 +1,16 @@
 <nav class="ui inverted stackable menu">
-  <header class="header item"> Spacebook </header>
+  <h2 class="ui inverted header"> <img src="/public/images/spacebook-logo.png" class="ui mini center alligned image">  Spacebook </header>
   <div class="right menu">
     <a #{if request.action=="Home.index"}class="active item"#{/if} #{if request.action!="Home.index"}class="item"#{/if} href="/home">Home</a>
     <a #{if request.action=="Members.index"}class="active item"#{/if} #{if request.action!="Members.index"}class="item"#{/if} href="/members">Members</a>
   	<a #{if request.action=="Profile.index"}class="active item"#{/if} #{if request.action!="Profile.index"}class="item"#{/if} href="/profile">Profile</a>
   	<a #{if request.action=="Blog.index"}class="active item"#{/if} #{if request.action!="Blog.index"}class="item"#{/if} href="/blog">Blog</a>
     <div class="ui simple dropdown item">
-    <i class="dropdown icon"></i>
-    <i class="setting icon"></i>
-    <div class="menu">
-      <a class="item" href="/editprofile">Settings</a>
-      <a class="item" href="/logout">Logout</a>
+    <i class="white dropdown icon"></i>
+    <i class="white setting icon"></i>
+    <div class="ui menu">
+      <div class="item"><a class="item" href="/editprofile">Settings</a></div>
+      <div class="item"><a class="item" href="/logout">Logout</a></div>
     </div>
     </div>   
   </div>

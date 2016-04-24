@@ -1,0 +1,41 @@
+body
+{
+  font-family: 'Dosis', sans-serif !important;
+  background-image: url("/public/images/landpage.png") !important;
+  background-color: black !important;
+  
+}
+section
+{
+	font-family: 'Dosis', sans-serif !important;
+}
+#login
+{
+	opacity: 0.9 !important;
+}
+
+#or
+{
+	text-color: white;
+}
+
+#anchor_blue
+{
+	color: #0E6EB8;
+}
+a.anchor
+{
+	color: black;
+}
+
+a:hover
+  {
+    color:yellow;
+    text-decoration:none;
+    cursor:pointer;
+   }
+   
+#settings
+{
+	background-color: black !important:
+}   

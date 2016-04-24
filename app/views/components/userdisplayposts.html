@@ -1,57 +1,87 @@
-<section class="ui stacked segment">
-  <h4 class="ui inverted blue block header">Published Posts</h4>
- 
-  #{list items:user.posts.reverse(), as:'post'}
-   <section class = "ui segment">
-    <h5 class="ui header"> 
-  	${post.title}
-    </h5>
-    
+<section class="ui stackable segment">
+	<h2 class="ui center aligned header">Published Posts</h2>
+	<hr>
+
+	#{list items:user.posts.reverse(), as:'post'}
+	<section class="ui segment">
+		<h3 class="ui dividing center aligned header">${post.title}</h3>
+
 		<div class="ui grid">
 
 			<div class="thirteen wide column">
-				<p>${post.content}</p>
+				<h4>${post.content}</h4>
 			</div>
-			<div class="three wide center aligned column">		
-			<button class="circular ui icon button">
-					<i class="edit icon" ></i>
-				</button>		
-			<form action="/blog/deletepost/${post.id}" method="POST">
-				<button class="circular ui icon button">
-					<i class="trash outline icon"></i>
-				</button>
-			</form>		
+			<div class="three wide center aligned column">
+				<a class="item" href="/blog/editpostpage/${post.id}">
+					<button class="black circular ui icon button">
+						<i class="edit icon"></i>
+					</button>
+				</a>
+				<form action="/blog/deletepost/${post.id}" method="POST">
+					<button class="black circular ui icon button">
+						<i class="trash outline icon"></i>
+					</button>
+				</form>
 				<p>${post.getTime(post.time)}</p>
 				<div class="ui vertical buttons">
 					<button class="ui facebook button">
-						<i class="facebook icon"></i> 
+						<i class="facebook icon"></i>
 					</button>
 					<button class="ui twitter button">
-						<i class="twitter icon"></i> 
+						<i class="twitter icon"></i>
 					</button>
 					<button class="ui google plus button">
-						<i class="google plus icon"></i>  
+						<i class="google plus icon"></i>
 					</button>
 				</div>
 			</div>
-	
-			
+
+
 		</div>
 
 
-		<h4 class="ui blue block header">Comment</h4>
- 		#{list items:post.comments, as:'comment'}
- 		<p>${comment.sender.firstName} ${comment.content} ${comment.getTime(comment.time)}</p>
- 		 #{/list}
-  	<form action="/publicblog/comment/${user.id}/${post.id}" method="POST">
-    <div class="field"> 
-      <textarea name="content" placeholder="Content"></textarea>
-    </div>
-    <button class="ui button teal submit labeled icon"><i class="icon edit"></i> Comment </button>
-  </form>
-  </section>
-  #{/list}
-  
+		<h3 class="ui center aligned header">Comments</h3>
+		<hr>
+		#{list items:post.comments, as:'comment'}
+		<section class="ui segment">
+
+			<h4 class="ui header">
+				<img class="ui avatar image"
+					src="/profile/getthumbnail/${comment.sender.id}"><a
+					href="/publicprofile/${comment.sender.id}">
+					${comment.sender.firstName}</a>
+			</h4>
+			<br>
+			<h5 class="ui left floated header">${comment.content}</h5>
+
+			<form action="/blog/deletecomment/${post.id}/${comment.id}"
+				method="POST">
+				<button class="black circular ui icon right floated button">
+					<i class="trash outline icon"></i>
+				</button>
+			</form>
+			<h5 class="ui right floated header">
+				${comment.getTime(comment.time)}</h5>
+		</section>
+
+		#{/list}
+		<div class="ui form">
+			<form action="/publicblog/comment/${user.id}/${post.id}"
+				method="POST">
+				<div class="field">
+					<input type="text" name="content" placeholder="Any comments?"></input>
+				</div>
+				<button class="blue ui icon button">
+					<i class="comment icon"></i>
+				</button>
+
+			</form>
+		</div>
+	</section>
+	<br>
+	<hr>
+	<br> #{/list}
+
 </section>
 
 

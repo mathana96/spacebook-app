@@ -8,17 +8,17 @@ import models.*;
 public class Accounts extends Controller
 {
 	
-  public static void signup()
-  {
-    render();
-  }
-
-  public static void login()
-  {
-  	
-    render();
-    
-  }
+//  public static void signup()
+//  {
+//    render();
+//  }
+//
+//  public static void login()
+//  {
+//  	
+//    render();
+//    
+//  }
 
   public static void logout()
   {
@@ -49,7 +49,7 @@ public class Accounts extends Controller
     }
     else
     {
-      login();
+      index();
     }
     return user;
   }
@@ -79,7 +79,7 @@ public class Accounts extends Controller
     else
     {
       Logger.info("Authentication failed");
-      login();
+      index();
     }
   }
 }

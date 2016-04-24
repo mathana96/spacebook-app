@@ -38,14 +38,30 @@ public class Comment extends Model
       long seconds = timePassed/1000;
       long minutes = seconds/60;
       long hours = minutes/60;
-      if (hours > 0)
+      long days = hours/24;
+      if (days > 0)
+      {
+      	if (days < 2)
+      	{
+      		return days + " day ago";
+      	}
+      	else
+      	{
+      		return days + " days ago";
+      	}
+      }
+      else if (hours > 0)
       {
       	if (hours < 2)
       	{
         	return hours + " hour ago";
 
       	}
-      	return hours + " hours ago";
+      	else
+      	{
+      		return hours + " hours ago";
+      	}
+      	
       }
       else if(minutes > 0) 
       {

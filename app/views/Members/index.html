@@ -1,10 +1,11 @@
-#{extends 'main.html' /} 
-#{set title:'Members' /} 
+#{extends 'main.html' /} #{set title:'Members' /}
 
-<nav class="ui stackable inverted menu">
-	#{include "components/navigation.html" /} 
-</nav> 
+<nav class="ui stackable inverted menu">#{include
+	"components/navigation.html" /}</nav>
 
-<h1 class="ui inverted teal block header" >Spacebook Members</h1>
+<section class="ui stackable inverted grid segment">
 
-#{include "components/members.html" /} 
+	<h1 class="ui inverted center aligned header">Members</h1>
+	<div class="sixteen wide column">#{include
+		"components/members.html" /}</div>
+</section>

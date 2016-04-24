@@ -2,16 +2,15 @@
   <div class="ui list"> 
     #{list items:users, as:'user'}
       <div class="ui item"> 
-        <i class="user icon"></i>
+        <img class = "ui avatar image" src="/profile/getthumbnail/${user.id}">
         <div class="content">
-          <a href="/publicprofile/${user.id}"> ${user.firstName} ${user.lastName}: : ${user.statusText}</a>  <a href="members/follow/${user.id}"> (follow) </a> 
-          #{if user.active == true}
-         			 online!
-         			 #{/if}
-         			 #{if user.active != true}
-         			 offline!
-         			 #{/if}  
-  <a href="/publicblog/${user.id}">Public Blog</a>     
+        #{if user.active == true}<i class="green circle icon"></i> #{/if} #{if user.active != true} <i class="circle thin icon"></i> #{/if}
+        
+          <a href="/publicprofile/${user.id}"> ${user.firstName} ${user.lastName}</a>  <a href="members/follow/${user.id}"><i class="blue add user icon"></i></a> 
+          <a class="anchor" href="/publicblog/${user.id}"><i class="blue browser icon"></i></a>
+          
+  				<div class="ui yellow compact message"> ${user.statusText} </div>
+  				
         </div>
       </div>
     #{/list}

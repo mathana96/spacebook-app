@@ -1,26 +1,40 @@
-<section class="ui stacked segment">
-  <div class="ui medium image">
-    <label class="ui ribbon label">Profile Image</label>
-    <img src="/profile/getpicture/${user.id}">
-  </div>  
-  <section class="ui raised form segment">
-    <form #{if request.url=="/profile"}action="/profile/uploadpicture/${user.id}"#{/if}#{if request.url=="/home"}action="/home/uploadpicture/${user.id}"#{/if} method="post" enctype="multipart/form-data">     
-      <div class="ui field">
-        <input type="file" name="picture">  </input> 
-     </div>     
-     <button class="ui blue submit button"> Upload</button>       
-    </form>        
-  </section>
-  <div class="ui medium image">
-    <label class="ui ribbon label">Thumbnail Image</label>
-    <img src="/profile/getthumbnail/${user.id}">
-  </div>
-  <section class="ui raised form segment">
-    <form #{if request.url=="/profile"}action="/profile/uploadthumbnail/${user.id}"#{/if}#{if request.url=="/home"}action="/home/uploadthumbnail/${user.id}"#{/if} method="post" enctype="multipart/form-data">     
-      <div class="ui field">
-        <input type="file" name="picture">  </input> 
-     </div>     
-     <button class="ui blue submit button"> Upload</button>       
-    </form>        
-  </section>      
-</section>  
+<section class="ui stackable segment">
+	<h2 class="ui center aligned header">Profile Picture</h2>
+	<hr>
+
+	<section class="ui two column middle aligned grid form segment">
+		<div class="column">
+			<img class="ui small image" src="/profile/getpicture/${user.id}">
+		</div>
+		<div class="column">
+			<form #{if request.url==
+				"/profile"}action="/profile/uploadpicture/${user.id}" #{/if}#{if
+				request.url== "/home"}action="/home/uploadpicture/${user.id}"
+				#{/if} method="post" enctype="multipart/form-data">
+				<div class="ui field">
+					<input type="file" name="picture"> </input>
+				</div>
+				<button class="ui blue submit button">Upload</button>
+			</form>
+		</div>
+	</section>
+
+	<h2 class="ui center aligned header">Thumbnail Picture</h2>
+	<hr>
+	<section class="ui two column middle aligned grid form segment">
+		<div class="column">
+			<img class="ui small image" src="/profile/getthumbnail/${user.id}">
+		</div>
+		<div class="column">
+			<form #{if request.url==
+				"/profile"}action="/profile/uploadthumbnail/${user.id}" #{/if}#{if
+				request.url== "/home"}action="/home/uploadthumbnail/${user.id}"
+				#{/if} method="post" enctype="multipart/form-data">
+				<div class="ui field">
+					<input type="file" name="picture"> </input>
+				</div>
+				<button class="ui blue submit button">Upload</button>
+			</form>
+		</div>
+	</section>
+</section>	

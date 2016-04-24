@@ -4,6 +4,8 @@
 <nav class="ui stackable inverted menu">
 	#{include "components/navigation.html" /} 
 </nav>
- 
- #{include "components/currentuserdisplayposts.html" /} 
+ 	<section class="ui inverted grid segment">
+	<h1 class="ui inverted center aligned header">${post.title}</h1>
+<div class="sixteen wide column"> #{include "components/currentuserdisplayposts.html" /} </div>
 
+</section>

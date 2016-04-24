@@ -8,6 +8,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import controllers.Accounts;
+import play.Logger;
 import play.db.jpa.Model;
 
 @Entity
@@ -79,5 +81,7 @@ public class Post extends Model
       }
   
  }
+  
+
   
 }

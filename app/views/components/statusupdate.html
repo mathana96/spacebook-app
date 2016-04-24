@@ -1,14 +1,15 @@
-<section class="ui stacked segment">
-  <h4 class="ui inverted red block header"> Status</h4>
-  <div class="ui message">
+<section class="ui stackable segment">
+  <h2 class="ui center aligned header"> Status</h2>
+  <hr>
+  <div class="ui yellow large message">
     <p> ${user.statusText} </p>
   </div>
    <section class="ui form segment">
     <form #{if request.url=="/profile"}action="/profile/changestatus"#{/if}#{if request.url=="/home"}action="/home/changestatus"#{/if} method="POST">
       <div class="field">
-        <textarea name="statusText"></textarea>
+        <textarea placeholder="What would you like to rant about today?"  name="statusText"></textarea>
       </div>
-      <button class="ui button teal submit labeled icon"><i class="icon edit"></i> Update </button>
+      <button class="ui button blue submit labeled icon"><i class="icon edit"></i> Update </button>
     </form>
   </section>
 </section>  

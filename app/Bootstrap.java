@@ -41,7 +41,7 @@ public class Bootstrap extends Job
       marge.profilePicture = blob;
       marge.save();
       
-      photoName = "public/images/t_marge.png";
+      photoName = "public/images/t_marge.jpg";
       blob = new Blob ();
       blob.set(new FileInputStream(photoName), MimeTypes.getContentType(photoName));
       marge = User.findByEmail("marge@simpson.com");

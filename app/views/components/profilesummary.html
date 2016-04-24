@@ -2,12 +2,14 @@
 	<thead>
 		<tr>
 			<th>Email</th>
+			<th>Blog</th>
 			<th>Nationality</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td>${user.email}</td>
+			<td><a class="anchor" href="/publicblog/${user.id}">${user.firstName}'s Blog</a></td>
 			<td>${user.nationality}</td>
 		</tr>
 	</tbody>

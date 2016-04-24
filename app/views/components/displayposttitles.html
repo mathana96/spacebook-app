@@ -1,21 +1,18 @@
-<section class="ui stacked segment">
-	<h4 class="ui blue block header">Published Posts</h4>
 
 	#{list items:user.posts.reverse(), as:'post'}
-	<section class="ui grid">
 
-		<div class="three wide column"></div>
-			<div class="ten wide center aligned column">
+
+
+			<div class="sixteen wide center aligned column">
 				<h2 class="ui header"><a href="/publicblog/viewpost/${user.id}/${post.id}">${post.title}</a></h2>
 				<p>${post.getTime(post.time)}</p>
 			</div>
 		<hr>
 		<div class="three wide column"></div>
-	</section>
 
 	#{/list}
 
-</section>
+
 
 
 
