@@ -1,5 +1,6 @@
 package models;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -26,14 +27,14 @@ public class Post extends Model
 	public List<Comment> comments;
 
 
-	public long time;;
-
+	public Date when;
+	
 	public Post(String title, String content, User author)
 	{
 		this.title = title;
 		this.content = content;
 		this.comments = new ArrayList<Comment>();  
-		this.time = System.currentTimeMillis();
+		this.when = new Date();
 		this.author = author;
 	}
 
@@ -48,37 +49,5 @@ public class Post extends Model
 		return find("title", title).first();
 	} 
 
-	private String getTime(long time)
-	{
-		long timeNow = System.currentTimeMillis();
-		long timePassed = timeNow - time;      // time passed in milliseconds
-		long seconds = timePassed/1000;
-		long minutes = seconds/60;
-		long hours = minutes/60;
-		if (hours > 0)
-		{
-			if (hours < 2)
-			{
-				return hours + " hour ago";
 
-			}
-			return hours + " hours ago";
-		}
-		else if(minutes > 0) 
-		{
-			if (minutes < 2)
-			{
-				return minutes + " minute ago";
-			}
-			else
-			{
-				return minutes + " minutes ago";
-			}          
-		}
-		else 
-		{
-			return seconds + " seconds ago";
-		}
-
-	}
 }
